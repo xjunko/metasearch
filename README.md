@@ -16,7 +16,7 @@
 
 <br>
 
-[search.tiago.zip](https://search.tiago.zip) is a lightweight yet powerful metasearch engine focused on user privacy and performance. it sources data from brave search and solves challenges to provide comprehensive answers without tracking or storing user data.
+[search.kafu.ovh](https://search.kafu.ovh) is a lightweight yet powerful metasearch engine focused on user privacy and performance. it sources data from brave search and solves challenges to provide comprehensive answers without tracking or storing user data.
 
 ### private by design
 
@@ -43,7 +43,7 @@ we implement most of brave's rich answer features, including calculator, color p
 once the instance author enables it, you can query the engine over a simple authenticated endpoint and get clean JSON back, no scraping required:
 
 ```bash
-curl -X POST https://search.tiago.zip/api \
+curl -X POST https://search.kafu.ovh/api \
   -H "Authorization: Bearer YOUR_KEY" \
   -H "Content-Type: application/json" \
   -d '{"query":"metasearch","type":"web","page":0}'
@@ -60,7 +60,7 @@ wrangler d1 execute metasearch --remote \
   --command "INSERT INTO api_keys (key, label) VALUES ('$KEY', 'alice')"
 ```
 
-full docs live at [/api](https://search.tiago.zip/api).
+full docs live at [/api](https://search.kafu.ovh/api).
 
 ### self-hosting
 

@@ -6,7 +6,7 @@ import { file } from "bun";
 const ROOT = new URL("../public/", import.meta.url).pathname;
 
 const QUERIES = [
-  "qr code https://search.tiago.zip",
+  "qr code https://search.kafu.ovh",
   "password generator",
   "uuid",
   "lorem ipsum",

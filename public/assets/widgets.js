@@ -36,11 +36,11 @@ const h = (tag, props, ...kids) => {
 const card = (title, sub, ...body) => {
   const head = title
     ? h(
-        "div",
-        { class: "w-head" },
-        h("div", { class: "w-title" }, title),
-        sub && h("div", { class: "w-sub" }, sub),
-      )
+      "div",
+      { class: "w-head" },
+      h("div", { class: "w-title" }, title),
+      sub && h("div", { class: "w-sub" }, sub),
+    )
     : null;
   return h(
     "section",
@@ -140,7 +140,7 @@ const highlightInto = async (el, code) => {
   try {
     if (!_hl) _hl = (await import("/s/sugar-high.js")).highlight;
     if (el.isConnected) el.innerHTML = _hl(code);
-  } catch {}
+  } catch { }
 };
 
 const widgets = [];
@@ -168,7 +168,7 @@ reg({
     const dl = h("button", { class: "w-btn", html: "download png" });
     const wrap = h("div", { class: "w-qr-wrap" }, canvas);
     const draw = async () => {
-      const t = input.value || "https://search.tiago.zip";
+      const t = input.value || "https://search.kafu.ovh";
       if (!window.qrcode) await loadScript("/s/qrcode.js");
       const qr = window.qrcode(0, "M");
       qr.addData(t);
@@ -212,7 +212,7 @@ reg({
         "div",
         { class: "w-btn-row" },
         dl,
-        copyBtn(() => input.value || "https://search.tiago.zip", "copy text"),
+        copyBtn(() => input.value || "https://search.kafu.ovh", "copy text"),
       ),
     );
   },
@@ -1398,7 +1398,7 @@ reg({
     try {
       const stored = JSON.parse(localStorage.getItem(HKEY) || "[]");
       if (Array.isArray(stored)) history = stored.slice(-50);
-    } catch {}
+    } catch { }
     let mem = 0;
     let deg = localStorage.getItem("ms-calc-deg") !== "rad";
     let histNav = -1;
@@ -1504,7 +1504,7 @@ reg({
     const saveHistory = () => {
       try {
         localStorage.setItem(HKEY, JSON.stringify(history));
-      } catch {}
+      } catch { }
     };
 
     const commit = () => {
@@ -1630,7 +1630,7 @@ reg({
           () => {
             try {
               mem += calcEvaluate(expr.value.trim() || "0", deg);
-            } catch {}
+            } catch { }
           },
         ],
         [
@@ -1638,7 +1638,7 @@ reg({
           () => {
             try {
               mem -= calcEvaluate(expr.value.trim() || "0", deg);
-            } catch {}
+            } catch { }
           },
         ],
       ].map(([l, fn]) => {
@@ -1774,7 +1774,7 @@ const calc = (id, title, sub, fields, compute) =>
         `^${id.replace(/_/g, "[\\s_-]*")}(?:\\s+calculator|\\s+calc)?$`,
         "i",
       ).test(q.trim()) ||
-      (sub && typeof sub === "object" && sub.alt?.test(q.trim()))
+        (sub && typeof sub === "object" && sub.alt?.test(q.trim()))
         ? {}
         : null,
     build: () => {
@@ -3564,7 +3564,7 @@ reg({
             ),
           );
           highlightInto(pre, JSON.stringify(json, null, 2));
-        } catch {}
+        } catch { }
       });
     };
     input.value = token;
@@ -3809,7 +3809,7 @@ reg({
         rows: "5",
         placeholder: "# Hello\n\n**bold** and *italic*\n\n- a list",
       },
-      "# Hello\n\nsome **bold** and *italic* text.\n\n- one\n- two\n\n`code` and [a link](https://search.tiago.zip)",
+      "# Hello\n\nsome **bold** and *italic* text.\n\n- one\n- two\n\n`code` and [a link](https://search.kafu.ovh)",
     );
     const out = h("div", { class: "w-md-out" });
     const esc = (s) =>
@@ -5611,7 +5611,7 @@ reg({
               ),
             ),
         );
-      } catch {}
+      } catch { }
     };
 
     const renderExtras = (data) => {
